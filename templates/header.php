@@ -34,11 +34,28 @@ if (!isset($_SESSION['user_id'])) {
                     <a class="nav-link" href="#">Sales</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" a href="#">Products</a>
+                    <a class="nav-link" href="../admin/products.php">Products</a>
                 </li>
                 <?php if ($_SESSION['role'] === 'Admin'): ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Users</a>
+                    <a class="nav-link" href="../admin/users.php">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../admin/suppliers.php">Suppliers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../admin/categories.php">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../admin/purchases.php">Purchases</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Reports
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../admin/stock_report.php">Stock Report</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Settings</a>
