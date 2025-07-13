@@ -9,7 +9,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user_id = $_SESSION['user_id'];
         $sale_date = date('Y-m-d H:i:s');
         $subtotal = 0;
-        $tax_rate = 0.05; // 5% tax
+
+        $sql_tax = "SELECT value FROM settings WHERE `key` = 'tax_rate'";
+        $result_tax = mysqli_query($conn, $sql_tax);
+        $tax_rate = mysqli_fetch_assoc($result_tax)['value'] ?? 0;
+        $tax_rate = $tax_rate / 100;
 
         // Calculate subtotal
         foreach ($cart as $item) {

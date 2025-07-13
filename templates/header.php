@@ -37,6 +37,9 @@ if (!isset($_SESSION['user_id'])) {
                     <a class="nav-link" href="../admin/returns.php">Returns</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="../admin/expenses.php">Expenses</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="../admin/products.php">Products</a>
                 </li>
                 <?php if ($_SESSION['role'] === 'Admin'): ?>
@@ -58,10 +61,15 @@ if (!isset($_SESSION['user_id'])) {
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="../admin/stock_report.php">Stock Report</a>
+                        <a class="dropdown-item" href="../admin/sales_report.php">Sales Report</a>
+                        <a class="dropdown-item" href="../admin/purchase_report.php">Purchase Report</a>
+                        <a class="dropdown-item" href="../admin/expense_report.php">Expense Report</a>
+                        <a class="dropdown-item" href="../admin/cash_flow.php">Cash Flow</a>
+                        <a class="dropdown-item" href="../admin/stock_movement.php">Stock Movement</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Settings</a>
+                    <a class="nav-link" href="../admin/settings.php">Settings</a>
                 </li>
                 <?php endif; ?>
             </ul>

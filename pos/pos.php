@@ -122,6 +122,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const taxEl = document.getElementById('tax');
     const totalEl = document.getElementById('total');
     const productSearch = document.getElementById('product-search');
+    const taxRate = <?php
+        $sql_tax = "SELECT value FROM settings WHERE `key` = 'tax_rate'";
+        $result_tax = mysqli_query($conn, $sql_tax);
+        $tax_rate = mysqli_fetch_assoc($result_tax)['value'] ?? 0;
+        echo $tax_rate / 100;
+    ?>;
     let cartItems = {};
 
     // Add product to cart
@@ -171,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
             cart.appendChild(cartItem);
         }
 
-        const tax = subtotal * 0.05;
+        const tax = subtotal * taxRate;
         const total = subtotal + tax;
 
         subtotalEl.textContent = `$${subtotal.toFixed(2)}`;

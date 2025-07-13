@@ -56,8 +56,16 @@ $items = mysqli_fetch_all($result_items, MYSQLI_ASSOC);
 </head>
 <body>
     <div class="receipt-container">
-        <h3 class="text-center">Store Name</h3>
-        <p class="text-center">123 Main St, Anytown, USA</p>
+        <?php
+        $sql_settings = "SELECT * FROM settings";
+        $result_settings = mysqli_query($conn, $sql_settings);
+        $settings = [];
+        while ($row = mysqli_fetch_assoc($result_settings)) {
+            $settings[$row['key']] = $row['value'];
+        }
+        ?>
+        <h3 class="text-center"><?php echo $settings['store_name'] ?? 'Store Name'; ?></h3>
+        <p class="text-center"><?php echo $settings['address'] ?? '123 Main St, Anytown, USA'; ?></p>
         <hr>
         <p>Receipt #: <?php echo $sale['receipt_no']; ?></p>
         <p>Date: <?php echo $sale['sale_date']; ?></p>
