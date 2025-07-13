@@ -28,10 +28,13 @@ if (!isset($_SESSION['user_id'])) {
                     <a class="nav-link" href="../pos/dashboard.php">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">POS</a>
+                    <a class="nav-link" href="../pos/pos.php">POS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sales</a>
+                    <a class="nav-link" href="../admin/sales.php">Sales</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../admin/returns.php">Returns</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../admin/products.php">Products</a>
