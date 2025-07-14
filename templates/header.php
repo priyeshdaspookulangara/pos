@@ -27,8 +27,14 @@ if (!isset($_SESSION['user_id'])) {
                 <li class="nav-item">
                     <a class="nav-link" href="../pos/dashboard.php">Dashboard</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../pos/pos.php">POS</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="posDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        POS
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="posDropdown">
+                        <a class="dropdown-item" href="../pos/pos.php">Standard POS</a>
+                        <a class="dropdown-item" href="../pos/invoice_pos.php">Invoice POS</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../admin/sales.php">Sales</a>
