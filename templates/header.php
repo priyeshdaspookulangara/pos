@@ -56,8 +56,15 @@ if (!isset($_SESSION['user_id'])) {
                     <a class="nav-link" href="../admin/purchases.php">Purchases</a>
                 </li>
                 <li class="nav-item dropdown">
+                    <?php
+                    // Fetch count of products to reorder
+                    $sql_reorder_count = "SELECT COUNT(*) as reorder_count FROM products WHERE current_stock <= reorder_level";
+                    $result_reorder_count = mysqli_query($conn, $sql_reorder_count);
+                    $reorder_count_data = mysqli_fetch_assoc($result_reorder_count);
+                    $reorder_count = $reorder_count_data['reorder_count'];
+                    ?>
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Reports
+                        Reports <?php if ($reorder_count > 0): ?><span class="badge badge-danger"><?php echo $reorder_count; ?></span><?php endif; ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="../admin/stock_report.php">Stock Report</a>
@@ -66,6 +73,7 @@ if (!isset($_SESSION['user_id'])) {
                         <a class="dropdown-item" href="../admin/expense_report.php">Expense Report</a>
                         <a class="dropdown-item" href="../admin/cash_flow.php">Cash Flow</a>
                         <a class="dropdown-item" href="../admin/stock_movement.php">Stock Movement</a>
+                        <a class="dropdown-item" href="../admin/reorder_report.php">Reorder Report <?php if ($reorder_count > 0): ?><span class="badge badge-danger"><?php echo $reorder_count; ?></span><?php endif; ?></a>
                     </div>
                 </li>
                 <li class="nav-item">
